@@ -63,7 +63,7 @@ function updateFrame() {
     ctx.clearRect(x, y, width, height);
 
     // move left?
-    if (movingLeft) {
+    if (movingLeft && !stop) {
         // am I away from the wall?
         if (x > 0) {
             srcY = trackLeft * height;
@@ -73,7 +73,7 @@ function updateFrame() {
         }
     }
     // else I'm moving right...
-    if (!movingLeft) {
+    if (!movingLeft && !stop) {
         if (x < canvasWidth - width) {
             srcY = trackRight * height;
             x += speed;
