@@ -39,7 +39,7 @@
             var right = true;
             var stop = false;
             
-            var speed = 12;
+            var speed = 35;
             
             var canvas = document.getElementById('canvas');
             canvas.width = canvasWidth;
@@ -59,10 +59,12 @@
                 srcX = curFrame * width;
                 ctx.clearRect(x,y,width,height);
                 
+                // move left?
                 if(left && x>0){
                     srcY = trackLeft * height;
                     x-=speed;
-                }
+
+                // move right?
                 if(right && x<canvasWidth-width){
                     srcY = trackRight * height;
                     x+=speed;
