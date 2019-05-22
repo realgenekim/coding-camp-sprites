@@ -39,7 +39,7 @@
             var right = true;
             var stop = false;
             
-            var speed = 35;
+            var speed = 12;
             
             var canvas = document.getElementById('canvas');
             canvas.width = canvasWidth;
@@ -48,7 +48,7 @@
             var ctx = canvas.getContext("2d");
             
             var character = new Image();
-            character.src = "character.png";
+            character.src = "https://storage.googleapis.com/realgenekim-public/character.png"
             
             function updateFrame(){
                 if(stop){
@@ -63,7 +63,7 @@
                 if(left && x>0){
                     srcY = trackLeft * height;
                     x-=speed;
-
+                }
                 // move right?
                 if(right && x<canvasWidth-width){
                     srcY = trackRight * height;
@@ -95,7 +95,6 @@
             right = false;
         }
         setInterval(draw,100);
-        
             </script>
     </body>
 </html>
