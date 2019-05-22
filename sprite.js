@@ -22,8 +22,8 @@ var y = 10;
 var srcX;
 var srcY;
 
-var left = false;
-var right = true;
+var movingLeft = false;
+var movingRight = true;
 var stop = false;
 
 var speed = 12;
@@ -47,12 +47,12 @@ function updateFrame() {
     ctx.clearRect(x, y, width, height);
 
     // move left?
-    if (left && x > 0) {
+    if (moveLeft && x > 0) {
         srcY = trackLeft * height;
         x -= speed;
     }
-    // move right?
-    if (right && x < canvasWidth - width) {
+    // else I'm moving right...
+    if (moveRight && x < canvasWidth - width) {
         srcY = trackRight * height;
         x += speed;
     }
@@ -65,21 +65,21 @@ function draw() {
 
 
 function moveLeft() {
-    left = true;
-    right = false;
+    moveLeft = true;
+    moveRight = false;
     stop = false;
 }
 
 function moveRight() {
-    left = false;
-    right = true;
+    moveLeft = false;
+    moveRight = true;
     stop = false;
 }
 
 function stopCharacter() {
     stop = true;
-    left = false;
-    right = false;
+    moveLeft = false;
+    moveRight = false;
 }
 // redraw every 100 milliseconds
 setInterval(draw, 100);
